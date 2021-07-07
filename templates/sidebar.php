@@ -43,88 +43,27 @@
             <a href="<?= base_url('admin/index') ?>" class="nav-link">
               <i class="nav-icon fas fa-home"></i>
               <p>
-                Home
+                Beranda
               </p>
             </a>
           </li>
-
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-desktop"></i>
+          <li class="nav-item">
+            <a href="<?= base_url('admin/perusahaan') ?>" class="nav-link">
+              <i class="nav-icon fas fa-house"></i>
               <p>
-                Data Master
-                <i class="right fas fa-angle-left"></i>
+                Perusahaan
               </p>
             </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="<?= base_url('admin/jenis/') ?>" class="nav-link">
-                  <i class="fas fa-file-alt nav-icon"></i>
-                  <p>Jenis Barang</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?= base_url('admin/satuan/') ?>" class="nav-link">
-                  <i class="fas fa-file-alt nav-icon"></i>
-                  <p>Satuan Barang</p>
-                </a>
-              </li>
-            </ul>
           </li>
-
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+          <li class="nav-item">
+            <a href="<?= base_url('admin/proyek') ?>" class="nav-link">
               <i class="nav-icon fas fa-project-diagram"></i>
               <p>
-                Data Proyek
-                <i class="right fas fa-angle-left"></i>
+                Proyek
               </p>
             </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="<?= base_url('admin/perusahaan/') ?>" class="nav-link">
-                  <i class="fas fa-file-alt nav-icon"></i>
-                  <p>Perusahaan</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?= base_url('admin/proyek/') ?>" class="nav-link">
-                  <i class="fas fa-file-alt nav-icon"></i>
-                  <p>Proyek</p>
-                </a>
-              </li>
-            </ul>
           </li>
 
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-truck-pickup"></i>
-              <p>
-                Data Barang Proyek
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="<?= base_url('admin/barangmasuk/') ?>" class="nav-link">
-                  <i class="fas fa-file-alt nav-icon"></i>
-                  <p>Barang Masuk</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?= base_url('admin/stok/') ?>" class="nav-link">
-                  <i class="fas fa-file-alt nav-icon"></i>
-                  <p>Stok</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?= base_url('admin/barangkeluar/') ?>" class="nav-link">
-                  <i class="fas fa-file-alt nav-icon"></i>
-                  <p>Barang Keluar</p>
-                </a>
-              </li>
-            </ul>
-          </li>
 
           <div class="dropdown-divider"></div>
 
