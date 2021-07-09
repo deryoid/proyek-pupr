@@ -76,6 +76,7 @@ include '../../templates/head.php';
                                                     <th>Perusahaan</th>
                                                     <th>Lokasi Pengerjaan</th>
                                                     <th>Estimasi Pengerjaan</th>
+                                                    <th>Tanggal Mulai Pengerjaan</th>
                                                     <th>Status</th>
                                                     <th>Opsi</th>
                                                 </tr>
@@ -93,6 +94,7 @@ include '../../templates/head.php';
                                                         <td><?= $row['nama_perusahaan'] ?></td>
                                                         <td><?= $row['alamat_proyek'] ?></td>
                                                         <td><?= $row['estimasi'] ?></td>
+                                                        <td><?= tgl_indo($row['tgl_mulai']) ?></td>
                                                         <td align="center">
                                                             <?php if ($row['status_proyek'] == "Menunggu") { ?>
                                                                 <span class="badge badge-warning"><?= $row['status_proyek'] ?></span>
@@ -103,7 +105,7 @@ include '../../templates/head.php';
                                                         </td>
                                                         <td align="center">
                                                             <!-- <a href="printdetail?id=<?= $row['id_proyek'] ?>" class="btn btn-info btn-sm" target="blank" title="Detail"><i class="fa fa-print"></i></a> -->
-                                                            <br><br>
+                                                            
                                                             <a href="edit?id=<?= $row['id_proyek'] ?>" class="btn btn-success btn-sm" title="Edit"><i class="fa fa-edit"> Isi Tanggal</i></a>
                                                         </td>
                                                     </tr>

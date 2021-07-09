@@ -77,7 +77,7 @@ include '../../templates/head.php';
                                                     <th>Lokasi Pengerjaan</th>
                                                     <th>Estimasi Pengerjaan</th>
                                                     <th>Tanggal Mulai</th>
-                                                    <th>Tanggal Selesai</th>
+                                                    <th>Progres Pengerjaan</th>
                                                     <th>Status</th>
                                                     <th>Opsi</th>
                                                 </tr>
@@ -96,7 +96,22 @@ include '../../templates/head.php';
                                                         <td><?= $row['alamat_proyek'] ?></td>
                                                         <td><?= $row['estimasi'] ?></td>
                                                         <td><?= $row['tgl_mulai'] ?></td>
-                                                        <td><?= $row['tgl_selesai'] ?></td>
+                                                        <td class="project_progress">
+                                                            <div class="progress progress-sm">
+                                                                <div class="progress-bar bg-green" role="progressbar" aria-valuenow="<?= $row['progres'] ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?= $row['progres'] ?>%">
+                                                                </div>
+                                                            </div>
+                                                            <small>
+                                                                <?php 
+                                                                if ($row['progres'] == 0) {
+                                                                    echo '0% Complete';
+                                                                }else {
+                                                                    echo $row['progres']."% Complete";
+                                                                }
+                                                                ?>
+
+                                                            </small>
+                                                        </td>
                                                         <td align="center">
                                                             <?php if ($row['status_jalan'] == "Menunggu") { ?>
                                                                 <span class="badge badge-warning"><?= $row['status_jalan'] ?></span>
@@ -106,7 +121,7 @@ include '../../templates/head.php';
 
                                                         </td>
                                                         <td align="center">
-                                                            <!-- <a href="printdetail?id=<?= $row['id_proyek'] ?>" class="btn btn-info btn-sm" target="blank" title="Detail"><i class="fa fa-print"></i></a> -->
+                                                            <a href="edit?id=<?= $row['id_proyek'] ?>" class="btn btn-info btn-sm"  title="Progress"><i class="fa fa-spinner"></i></a>
                                                         </td>
                                                     </tr>
                                                 </tbody>

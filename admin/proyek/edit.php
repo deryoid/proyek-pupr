@@ -108,16 +108,16 @@ include '../../templates/head.php';
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label for="estimasi" class="col-sm-2 col-form-label">Biaya Pengerjaan</label>
+                                            <label for="estimasi" class="col-sm-2 col-form-label">Rencana Biaya</label>
                                             <div class="col-sm-10">
-                                                <input type="number" class="form-control" id="biaya" name="biaya" value="<?= $row['biaya'] ?>">
+                                                <input type="number" class="form-control" id="biaya" name="rencana_biaya" value="<?= $row['rencana_biaya'] ?>">
                                             </div>
                                         </div>
                                     </div>
                                     <!-- /.card-body -->
 
                                     <div class="card-footer" style="background-color: white;">
-                                        <a href="<?= base_url('admin/perusahaan/') ?>" class="btn bg-gradient-secondary float-right"><i class="fa fa-arrow-left"> Batal</i></a>
+                                        <a href="<?= base_url('admin/proyek/') ?>" class="btn bg-gradient-secondary float-right"><i class="fa fa-arrow-left"> Batal</i></a>
                                         <button type="submit" name="submit" class="btn bg-gradient-primary float-right mr-2"><i class="fa fa-save"> Ubah</i></button>
                                     </div>
                                     <!-- /.card-footer -->
@@ -157,7 +157,7 @@ include '../../templates/head.php';
         $id_perusahaan      = $_POST['id_perusahaan'];
         $alamat_proyek      = $_POST['alamat_proyek'];
         $estimasi           = $_POST['estimasi'];
-        $biaya           = $_POST['biaya'];
+        $rencana_biaya           = $_POST['rencana_biaya'];
 
 
         $submit = $koneksi->query("UPDATE proyek SET  
@@ -166,7 +166,7 @@ include '../../templates/head.php';
                             id_perusahaan = '$id_perusahaan',
                             alamat_proyek = '$alamat_proyek',
                             estimasi = '$estimasi',
-                            biaya = '$biaya'
+                            rencana_biaya = '$rencana_biaya'
                             WHERE 
                             id_proyek = '$id'");
 

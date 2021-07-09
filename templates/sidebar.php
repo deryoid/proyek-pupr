@@ -49,7 +49,7 @@
           </li>
           <li class="nav-item">
             <a href="<?= base_url('admin/perusahaan') ?>" class="nav-link">
-              <i class="nav-icon fas fa-house"></i>
+              <i class="nav-icon fas fa-building"></i>
               <p>
                 Perusahaan
               </p>
@@ -66,8 +66,17 @@
 
 
           <div class="dropdown-divider"></div>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-desktop"></i>
+              <p>
+                Verifikasi Status Proyek
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
 
-          <li class="nav-item">
+            <li class="nav-item">
             <a href="<?= base_url('admin/proyekwaiting/') ?>" class="nav-link">
               <i class="nav-icon fas fa-pause-circle"></i>
               <p>
@@ -75,6 +84,8 @@
               </p>
             </a>
           </li>
+            </ul>
+            <ul class="nav nav-treeview">         
           <li class="nav-item">
             <a href="<?= base_url('admin/proyekdisetujui/') ?>" class="nav-link">
               <i class="nav-icon fas fa-tasks"></i>
@@ -83,7 +94,9 @@
               </p>
             </a>
           </li>
-          <li class="nav-item">
+            </ul>
+            <ul class="nav nav-treeview">
+            <li class="nav-item">
             <a href="<?= base_url('admin/proyekditunda/') ?>" class="nav-link">
               <i class="nav-icon fas fa-stop-circle"></i>
               <p>
@@ -91,7 +104,10 @@
               </p>
             </a>
           </li>
-
+            </ul>
+          </li>        
+         
+         
           <div class="dropdown-divider"></div>
 
           <li class="nav-item">

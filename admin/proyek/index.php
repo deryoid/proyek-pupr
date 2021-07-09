@@ -76,8 +76,8 @@ include '../../templates/head.php';
                                                     <th>Perusahaan</th>
                                                     <th>Lokasi Pengerjaan</th>
                                                     <th>Estimasi Pengerjaan</th>
+                                                    <th>Rencana Biaya</th>
                                                     <th>Status</th>
-                                                    <th>Biaya</th>
                                                     <th>Opsi</th>
                                                 </tr>
                                             </thead>
@@ -94,6 +94,7 @@ include '../../templates/head.php';
                                                         <td><?= $row['nama_perusahaan'] ?></td>
                                                         <td><?= $row['alamat_proyek'] ?></td>
                                                         <td><?= $row['estimasi'] ?></td>
+                                                        <td><?= "Rp.".$row['rencana_biaya'] ?></td>
                                                         <td align="center">
                                                             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                                                                 <?php if ($row['status_proyek'] == "Menunggu") { ?>
@@ -110,7 +111,7 @@ include '../../templates/head.php';
                                                                 <a class="dropdown-item" href="status?id=<?= $row['id_proyek'] ?>&v=Di Tunda">Di Tunda</a>
                                                             </div>
                                                         </td>
-                                                        <td><?= "Rp.".$row['biaya'] ?></td>
+                                                        
                                                         <td align="center">
                                                             <a href="printdetail?id=<?= $row['id_proyek'] ?>" class="btn btn-info btn-sm" target="blank" title="Detail"><i class="fa fa-print"></i></a>
                                                             <a href="edit?id=<?= $row['id_proyek'] ?>" class="btn btn-success btn-sm" title="Edit"><i class="fa fa-edit"></i></a>

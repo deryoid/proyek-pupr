@@ -1,6 +1,10 @@
 <?php
 require '../../config/config.php';
 require '../../config/koneksi.php';
+
+$id   = $_GET['id'];
+$data = $koneksi->query("SELECT * FROM proyek WHERE id_proyek = '$id'");
+$row  = $data->fetch_array();
 ?>
 <!DOCTYPE html>
 <html>
@@ -29,14 +33,14 @@ include '../../templates/head.php';
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0 text-dark">Proyek</h1>
+                            <h1 class="m-0 text-dark">Ubah Proyek</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="#">Home</a></li>
                                 <li class="breadcrumb-item active">Data Proyek</li>
                                 <li class="breadcrumb-item active">Proyek</li>
-                                <li class="breadcrumb-item active">Tambah Data</li>
+                                <li class="breadcrumb-item active">Ubah Data</li>
                             </ol>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
@@ -62,56 +66,60 @@ include '../../templates/head.php';
                                     <div class="card-body" style="background-color: white;">
 
 
+
                                         <div class="form-group row">
                                             <label for="kode_proyek" class="col-sm-2 col-form-label">Kode Proyek</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" id="kode_proyek" name="kode_proyek">
+                                                <input type="text" class="form-control" id="kode_proyek" value="<?= $row['kode_proyek'] ?>" readonly>
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label for="nama_proyek" class="col-sm-2 col-form-label">Nama Proyek</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" id="nama_proyek" name="nama_proyek">
+                                                <input type="text" class="form-control" id="nama_proyek" value="<?= $row['nama_proyek'] ?>" readonly>
                                             </div>
                                         </div>
-                                        <div class="form-group row">
-                                            <label for="id_perusahaan" class="col-sm-2 col-form-label">Perusahaan yang Menaungi</label>
-                                            <div class="col-sm-10">
-                                                <select class="form-control select2" data-placeholder="Pilih" id="id_perusahaan" name="id_perusahaan">
-                                                    <option value=""></option>
-                                                    <?php
-                                                    $data1 = $koneksi->query("SELECT * FROM perusahaan ORDER BY id_perusahaan ASC");
-                                                    while ($dsn = $data1->fetch_array()) {
-                                                    ?>
-                                                        <option value="<?= $dsn['id_perusahaan'] ?>"><?= $dsn['nama_perusahaan'] ?></option>
-                                                    <?php } ?>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class=" form-group row">
-                                            <label for="alamat_proyek" class="col-sm-2 col-form-label">Alamat Proyek</label>
-                                            <div class="col-sm-10">
-                                                <textarea class="form-control" rows="3" name="alamat_proyek"></textarea>
-                                            </div>
-                                        </div>
+
                                         <div class="form-group row">
                                             <label for="estimasi" class="col-sm-2 col-form-label">Estimasi Pengerjaan</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" id="estimasi" name="estimasi">
+                                                <input type="text" class="form-control" id="estimasi" value="<?= $row['estimasi'] ?>" readonly>
                                             </div>
                                         </div>
+
                                         <div class="form-group row">
-                                            <label for="rencana_biaya" class="col-sm-2 col-form-label">Rencana Biaya</label>
+                                            <label for="up_prog" class="col-sm-2 col-form-label">Update Progres</label>
                                             <div class="col-sm-10">
-                                                <input type="number" class="form-control" id="biaya" name="rencana_biaya">
+                                            <select class="form-control select" data-placeholder="Masukkan Progress" id="" name="progres" required="">
+                                                    <option value="5" <?php if ($row['progres'] == "5") {
+                                                                            echo "selected";
+                                                                            } ?>>5% (Penentuan Awal)</option>
+                                                    <option value="15" <?php if ($row['progres'] == "15") {
+                                                                                echo "selected";
+                                                                            } ?>>15% (Analisis Pengerjaan)</option>
+                                                    <option value="25" <?php if ($row['progres'] == "25") {
+                                                                                echo "selected";
+                                                                            } ?>>25% (Pengerjaan Awal)</option>
+                                                    <option value="50" <?php if ($row['progres'] == "50") {
+                                                                                echo "selected";
+                                                                            } ?>>50% (Pengerjaan Pertengahan)</option>
+                                                    <option value="75" <?php if ($row['progres'] == "75") {
+                                                                                echo "selected";
+                                                                            } ?>>75% (Pengerjaan Hampir Selesai)</option>
+                                                    <option value="100" <?php if ($row['progres'] == "100") {
+                                                                                echo "selected";
+                                                                            } ?>>100% (Pengerjaan Akhir/Selesai)</option>
+                                            </select>
                                             </div>
                                         </div>
+
+
                                     </div>
                                     <!-- /.card-body -->
 
                                     <div class="card-footer" style="background-color: white;">
-                                        <a href="<?= base_url('admin/proyek/') ?>" class="btn bg-gradient-secondary float-right"><i class="fa fa-arrow-left"> Batal</i></a>
-                                        <button type="submit" name="submit" class="btn bg-gradient-primary float-right mr-2"><i class="fa fa-save"> Simpan</i></button>
+                                        <a href="<?= base_url('admin/perusahaan/') ?>" class="btn bg-gradient-secondary float-right"><i class="fa fa-arrow-left"> Batal</i></a>
+                                        <button type="submit" name="submit" class="btn bg-gradient-primary float-right mr-2"><i class="fa fa-save"> Tambah Keterangan Tunda</i></button>
                                     </div>
                                     <!-- /.card-footer -->
 
@@ -145,38 +153,23 @@ include '../../templates/head.php';
 
     <?php
     if (isset($_POST['submit'])) {
-        $kode_proyek        = $_POST['kode_proyek'];
-        $nama_proyek        = $_POST['nama_proyek'];
-        $id_perusahaan      = $_POST['id_perusahaan'];
-        $alamat_proyek      = $_POST['alamat_proyek'];
-        $estimasi           = $_POST['estimasi'];
-        $rencana_biaya           = $_POST['rencana_biaya'];
+        $progres        = $_POST['progres'];
 
-        $submit = $koneksi->query("INSERT INTO proyek VALUES (
-            NULL,
-            '$kode_proyek',
-            '$nama_proyek',
-            '$id_perusahaan',
-            '$alamat_proyek',
-            '$estimasi',
-            'Menunggu',
-            NULL,
-            NULL,
-            NULL,
-            NULL,
-            '$rencana_biaya',
-            NULL,
-            NULL
-            )");
+
+
+
+        $submit = $koneksi->query("UPDATE proyek SET  
+                            progres = '$progres'
+                            WHERE 
+                            id_proyek = '$id'");
 
         if ($submit) {
-
-            $_SESSION['pesan'] = "Data Proyek Ditambahkan";
-            echo "<script>window.location.replace('../proyek/');</script>";
+            $_SESSION['pesan'] = "Data Proyek Diubah";
+            echo "<script>window.location.replace('../proyekdijalankan/');</script>";
         }
     }
-    ?>
 
+    ?>
 
 </body>
 

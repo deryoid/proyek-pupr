@@ -92,10 +92,10 @@ include '../../templates/head.php';
                                             <div class="col-sm-3">
                                                 <input type="date" class="form-control" id="tgl_mulai" name="tgl_mulai" value="<?= $row['tgl_mulai'] ?>">
                                             </div>
-                                            <label for="tgl_selesai" class="col-sm-2 col-form-label">Tanggal Selesai</label>
+                                            <!-- <label for="tgl_selesai" class="col-sm-2 col-form-label">Tanggal Selesai</label>
                                             <div class="col-sm-3">
                                                 <input type="date" class="form-control" id="tgl_selesai" name="tgl_selesai" value="<?= $row['tgl_selesai'] ?>">
-                                            </div>
+                                            </div> -->
                                         </div>
                                     </div>
                                     <!-- /.card-body -->
@@ -143,7 +143,6 @@ include '../../templates/head.php';
 
         $submit = $koneksi->query("UPDATE proyek SET  
                             tgl_mulai = '$tgl_mulai',
-                            tgl_selesai = '$tgl_selesai',
                             status_jalan = 'Di Jalankan'
                             WHERE 
                             id_proyek = '$id'");
