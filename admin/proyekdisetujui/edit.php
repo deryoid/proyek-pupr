@@ -57,7 +57,7 @@ include '../../templates/head.php';
                         <div class="row">
                             <div class="col-md-12">
                                 <!-- Horizontal Form -->
-                                <div class="card card-primary">
+                                <div class="card card-warning">
                                     <div class="card-header">
                                         <h3 class="card-title">Proyek</h3>
                                     </div>

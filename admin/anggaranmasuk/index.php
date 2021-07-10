@@ -71,10 +71,8 @@ include '../../templates/head.php';
                                             <thead class="bg-yellow">
                                                 <tr align="center">
                                                     <th>No</th>
-                                                    <th>Nama Perusahaan</th>
-                                                    <th>Bidang Perusahaan</th>
-                                                    <th>Alamat</th>
-                                                    <th>File Pendukung Perusahaan</th>
+                                                    <th>Asal Anggaran</th>
+                                                    <th>Nominal Masuk</th>
                                                     <th>Opsi</th>
                                                 </tr>
                                             </thead>
@@ -86,14 +84,11 @@ include '../../templates/head.php';
                                                 <tbody style="background-color: azure">
                                                     <tr>
                                                         <td align="center"><?= $no++ ?></td>
-                                                        <td><?= $row['nama_perusahaan'] ?></td>
-                                                        <td><?= $row['bidang_perusahaan'] ?></td>
-                                                        <td><?= $row['alamat_perusahaan'] ?></td>
-                                                        <td><a href="<?= base_url(); ?>/filependukung/<?= $row['file']?>" data-title="file" data-gallery="galery" title="Lihat" target="blank"><i>Lihat File</i></a></td>
+                                                        <td><?= $row['asal_anggaran'] ?></td>
+                                                        <td><?= $row['nominal_masuk'] ?></td>
                                                         <td align="center">
-                                                            <a href="printdetail?id=<?= $row['id_perusahaan'] ?>" class="btn btn-info btn-sm" target="blank" title="Print Detail"><i class="fa fa-print"></i></a>
-                                                            <a href="edit?id=<?= $row['id_perusahaan'] ?>" class="btn btn-success btn-sm" title="Edit"><i class="fa fa-edit"></i></a>
-                                                            <a href="hapus?id=<?= $row['id_perusahaan'] ?>" class="btn btn-danger btn-sm alert-hapus" title="Hapus"><i class="fa fa-trash"></i></a>
+                                                            <a href="edit?id=<?= $row['id_am'] ?>" class="btn btn-success btn-sm" title="Edit"><i class="fa fa-edit"></i></a>
+                                                            <a href="hapus?id=<?= $row['id_am'] ?>" class="btn btn-danger btn-sm alert-hapus" title="Hapus"><i class="fa fa-trash"></i></a>
                                                         </td>
                                                     </tr>
                                                 </tbody>
