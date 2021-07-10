@@ -56,6 +56,14 @@
             </a>
           </li>
           <li class="nav-item">
+            <a href="<?= base_url('admin/anggaranmasuk') ?>" class="nav-link">
+              <i class="nav-icon fas fa-arrow-right"></i>
+              <p>
+                Anggaran Masuk
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
             <a href="<?= base_url('admin/proyek') ?>" class="nav-link">
               <i class="nav-icon fas fa-project-diagram"></i>
               <p>

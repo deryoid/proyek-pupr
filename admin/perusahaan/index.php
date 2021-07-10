@@ -68,7 +68,7 @@ include '../../templates/head.php';
 
                                     <div class="table-responsive">
                                         <table id="example1" class="table table-bordered table-striped">
-                                            <thead class="bg-blue">
+                                            <thead class="bg-yellow">
                                                 <tr align="center">
                                                     <th>No</th>
                                                     <th>Nama Perusahaan</th>
