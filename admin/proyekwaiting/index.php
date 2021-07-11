@@ -77,7 +77,7 @@ include '../../templates/head.php';
                                                     <th>Lokasi Pengerjaan</th>
                                                     <th>Estimasi Pengerjaan</th>
                                                     <th>Status</th>
-                                                    <th>Opsi</th>
+                                                    <!-- <th>Opsi</th> -->
                                                 </tr>
                                             </thead>
                                             <?php
@@ -100,9 +100,9 @@ include '../../templates/head.php';
                                                                 <span class="badge badge-success"><?= $row['status_proyek'] ?></span>
                                                             <?php } ?>
                                                         </td>
-                                                        <td align="center">
-                                                            <!-- <a href="printdetail?id=<?= $row['id_proyek'] ?>" class="btn btn-info btn-sm" target="blank" title="Detail"><i class="fa fa-print"></i></a> -->
-                                                        </td>
+                                                        <!-- <td align="center">
+                                                            <a href="printdetail?id=<?= $row['id_proyek'] ?>" class="btn btn-info btn-sm" target="blank" title="Detail"><i class="fa fa-print"></i></a>
+                                                        </td> -->
                                                     </tr>
                                                 </tbody>
                                             <?php } ?>

@@ -93,7 +93,7 @@ include '../../templates/head.php';
                                                         <td><?= $row['estimasi'] ?></td>
                                                         <td align="center">
                                                             <a href="detail?id=<?= $row['id_proyek'] ?>" class="btn btn-info btn-sm" title="Detail"><i class="fa fa-eye"></i></a>
-                                                            <a href="printdetail?id=<?= $row['id_proyek'] ?>" class="btn btn-info btn-sm" target="blank" title="Print"><i class="fa fa-print"></i></a>
+                                                            <!-- <a href="printdetail?id=<?= $row['id_proyek'] ?>" class="btn btn-info btn-sm" target="blank" title="Print"><i class="fa fa-print"></i></a> -->
                                                         </td>
                                                     </tr>
                                                 </tbody>
