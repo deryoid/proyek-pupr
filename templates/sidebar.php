@@ -126,14 +126,14 @@
               </p>
             </a>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a href="<?= base_url('admin/detailproyek/') ?>" class="nav-link">
               <i class="nav-icon fas fa-truck-monster"></i>
               <p>
                 Detail Barang Proyek
               </p>
             </a>
-          </li>
+          </li> -->
 
         </ul>
       </nav>
