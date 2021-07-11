@@ -94,7 +94,7 @@ include '../../templates/head.php';
                                                         <td><?= $row['nama_perusahaan'] ?></td>
                                                         <td><?= $row['alamat_proyek'] ?></td>
                                                         <td><?= $row['estimasi'] ?></td>
-                                                        <td><?= tgl_indo($row['tgl_mulai']) ?></td>
+                                                        <td><?= $row['tgl_mulai'] ?></td>
                                                         <td align="center">
                                                             <?php if ($row['status_proyek'] == "Menunggu") { ?>
                                                                 <span class="badge badge-warning"><?= $row['status_proyek'] ?></span>
