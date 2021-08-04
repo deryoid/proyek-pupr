@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jul 11, 2021 at 02:46 AM
--- Server version: 5.7.24
--- PHP Version: 7.4.12
+-- Waktu pembuatan: 04 Agu 2021 pada 14.34
+-- Versi server: 5.7.24
+-- Versi PHP: 7.4.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,27 +24,29 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `anggaran_masuk`
+-- Struktur dari tabel `anggaran_masuk`
 --
 
 CREATE TABLE `anggaran_masuk` (
   `id_am` int(11) NOT NULL,
   `asal_anggaran` varchar(150) NOT NULL,
-  `nominal_masuk` varchar(150) NOT NULL
+  `nominal_masuk` varchar(150) NOT NULL,
+  `tanggal_masuk` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `anggaran_masuk`
+-- Dumping data untuk tabel `anggaran_masuk`
 --
 
-INSERT INTO `anggaran_masuk` (`id_am`, `asal_anggaran`, `nominal_masuk`) VALUES
-(1, 'PAGU', '15000000'),
-(2, 'Perorangan', '40000000000');
+INSERT INTO `anggaran_masuk` (`id_am`, `asal_anggaran`, `nominal_masuk`, `tanggal_masuk`) VALUES
+(1, 'PAGU', '15000000', '2021-08-04'),
+(2, 'Perorangan', '40000000000', '2021-08-04'),
+(3, 'APBU', '5000000000', '2021-08-04');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `perusahaan`
+-- Struktur dari tabel `perusahaan`
 --
 
 CREATE TABLE `perusahaan` (
@@ -60,7 +62,7 @@ CREATE TABLE `perusahaan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `perusahaan`
+-- Dumping data untuk tabel `perusahaan`
 --
 
 INSERT INTO `perusahaan` (`id_perusahaan`, `nama_perusahaan`, `bidang_perusahaan`, `alamat_perusahaan`, `tahun_berdiri`, `nama_pimpinan`, `no_telp`, `email`, `file`) VALUES
@@ -74,7 +76,7 @@ INSERT INTO `perusahaan` (`id_perusahaan`, `nama_perusahaan`, `bidang_perusahaan
 -- --------------------------------------------------------
 
 --
--- Table structure for table `proyek`
+-- Struktur dari tabel `proyek`
 --
 
 CREATE TABLE `proyek` (
@@ -89,23 +91,25 @@ CREATE TABLE `proyek` (
   `ket_tunda` varchar(255) DEFAULT NULL,
   `tgl_mulai` date DEFAULT NULL,
   `tgl_selesai` date DEFAULT NULL,
-  `rencana_biaya` varchar(250) DEFAULT NULL,
+  `id_am` int(11) DEFAULT NULL,
   `biaya_akhir` varchar(250) DEFAULT NULL,
-  `progres` varchar(25) DEFAULT NULL
+  `progres` varchar(25) DEFAULT NULL,
+  `tgl_progres` varchar(25) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `proyek`
+-- Dumping data untuk tabel `proyek`
 --
 
-INSERT INTO `proyek` (`id_proyek`, `kode_proyek`, `nama_proyek`, `id_perusahaan`, `alamat_proyek`, `estimasi`, `status_proyek`, `status_jalan`, `ket_tunda`, `tgl_mulai`, `tgl_selesai`, `rencana_biaya`, `biaya_akhir`, `progres`) VALUES
-(1, 'K1', 'Pembangunan Jembatan', 8, 'Jembatan Batola', '5 Tahun ', 'Di Tanggapi', 'Di Jalankan', NULL, '2021-07-09', NULL, '45000000', NULL, '15'),
-(2, 'PR5523', 'Pembangunan Jembatan', 9, 'Sungai Danau', '3 Tahun', 'Di Tanggapi', 'Di Jalankan', NULL, '2021-07-11', NULL, '500000000', NULL, '25');
+INSERT INTO `proyek` (`id_proyek`, `kode_proyek`, `nama_proyek`, `id_perusahaan`, `alamat_proyek`, `estimasi`, `status_proyek`, `status_jalan`, `ket_tunda`, `tgl_mulai`, `tgl_selesai`, `id_am`, `biaya_akhir`, `progres`, `tgl_progres`) VALUES
+(1, 'K1', 'Pembangunan Jembatan', 8, 'Jembatan Batola', '5 Tahun ', 'Di Tanggapi', 'Proyek Selesai', NULL, '2021-07-09', '2021-08-04', 1, NULL, '100', '04 Agustus 2021'),
+(2, 'PR5523', 'Pembangunan Jembatan', 9, 'Sungai Danau', '3 Tahun', 'Di Tunda', 'Di Jalankan', '<p>Tidak Sesuai</p>', '2021-07-11', NULL, 1, NULL, '25', NULL),
+(3, '12333', 'Pembangunan Jembatan', 4, 'bjm', '3 Tahun', 'Di Tanggapi', 'Di Jalankan', NULL, '2021-08-04', NULL, 2, NULL, '5', '04 Agustus 2021');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Struktur dari tabel `user`
 --
 
 CREATE TABLE `user` (
@@ -116,7 +120,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `user`
+-- Dumping data untuk tabel `user`
 --
 
 INSERT INTO `user` (`id_user`, `username`, `password`, `role`) VALUES
@@ -129,54 +133,55 @@ INSERT INTO `user` (`id_user`, `username`, `password`, `role`) VALUES
 --
 
 --
--- Indexes for table `anggaran_masuk`
+-- Indeks untuk tabel `anggaran_masuk`
 --
 ALTER TABLE `anggaran_masuk`
   ADD PRIMARY KEY (`id_am`);
 
 --
--- Indexes for table `perusahaan`
+-- Indeks untuk tabel `perusahaan`
 --
 ALTER TABLE `perusahaan`
   ADD PRIMARY KEY (`id_perusahaan`);
 
 --
--- Indexes for table `proyek`
+-- Indeks untuk tabel `proyek`
 --
 ALTER TABLE `proyek`
   ADD PRIMARY KEY (`id_proyek`),
-  ADD KEY `id_perusahaan` (`id_perusahaan`);
+  ADD KEY `id_perusahaan` (`id_perusahaan`),
+  ADD KEY `id_am` (`id_am`);
 
 --
--- Indexes for table `user`
+-- Indeks untuk tabel `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id_user`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `anggaran_masuk`
+-- AUTO_INCREMENT untuk tabel `anggaran_masuk`
 --
 ALTER TABLE `anggaran_masuk`
-  MODIFY `id_am` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_am` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `perusahaan`
+-- AUTO_INCREMENT untuk tabel `perusahaan`
 --
 ALTER TABLE `perusahaan`
   MODIFY `id_perusahaan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT for table `proyek`
+-- AUTO_INCREMENT untuk tabel `proyek`
 --
 ALTER TABLE `proyek`
-  MODIFY `id_proyek` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_proyek` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
   MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
