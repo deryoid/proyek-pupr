@@ -43,7 +43,7 @@ $bln = array(
     <hr size="2px" color="black">
   </b></p> -->
     <p align="center"><b>
-            <font size="5">Output Perusahaan</font> <br>
+            <font size="5">Laporan Perusahaan</font> <br>
             <hr size="2px" color="black">
         </b></p>
 
@@ -83,7 +83,7 @@ $bln = array(
     </div>
     <div style="text-align: center; display: inline-block; float: right;">
   <h5>
-    Banjarmasin , <?php echo tgl_indo(date('Y-m-d')); ?><br>
+    Tapin, <?php echo tgl_indo(date('Y-m-d')); ?><br>
     
     <br><br><br><br>
     Kepala Dinas

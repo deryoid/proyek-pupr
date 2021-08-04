@@ -3,7 +3,7 @@ include '../../config/config.php';
 include '../../config/koneksi.php';
 
 $id   = $_GET['id'];
-$data = $koneksi->query("SELECT * FROM perusahaan WHERE id_perusahaan = '$id'");
+$data = $koneksi->query("SELECT * FROM anggaran_masuk WHERE id_am = '$id'");
 $row  = $data->fetch_array();
 
 $bln = array(
@@ -34,17 +34,17 @@ $bln = array(
 </head>
 
 <body>
-<img src="<?=base_url('assets/dist/img/logo_pln.jpg')?>" align="left" width="90" height="90">
+<!-- <img src="<?=base_url('assets/dist/img/logo_pln.jpg')?>" align="left" width="90" height="90">
   <p align="center"><b>
     <font size="7">PT. GERAI INDAH MARABAHAN</font> <br> <br> <br> <br>
     <hr size="2px" color="black">
     <center><font size="2">Alamat : Jl. AES Nasution, Marabahan Kota, Marabahan Kabupaten Barito Kuala Kalimantan Selatan </font></center>
     <hr size="2px" color="black">
-  </b></p>
+  </b></p> -->
     <!-- Kop Here ! -->
     <h3>
         <center><br>
-            Data Perusahaan<br>
+            Detail Anggaran<br>
         </center>
     </h3><br><br>
     <div class="row">
@@ -56,47 +56,24 @@ $bln = array(
                             <b>
                                 <tr>
                                     <p>
-                                        <th width="40%">Nama Perusahaan </th>
-                                        <th><?php echo $row['nama_perusahaan'] ?></th>
+                                        <th width="40%">Asal Anggaran </th>
+                                        <th><?php echo $row['asal_anggaran'] ?></th>
                                     </p>
                                 </tr>
 
                                 <tr>
                                     <p>
-                                        <th>Bidang Perusahaan </th>
-                                        <th><?php echo $row['bidang_perusahaan'] ?></th>
+                                        <th>Nominal Masuk</th>
+                                        <th><?php echo $row['nominal_masuk'] ?></th>
                                     </p>
                                 </tr>
                                 <tr>
                                     <p>
-                                        <th>Alamat</th>
-                                        <th><?php echo $row['alamat_perusahaan'] ?></th>
+                                        <th>Tanggal Masuk</th>
+                                        <th><?php echo $row['tanggal_masuk'] ?></th>
                                     </p>
                                 </tr>
-                                <tr>
-                                    <p>
-                                        <th>Tahun Berdiri </th>
-                                        <th><?php echo $row['tahun_berdiri'] ?></th>
-                                    </p>
-                                </tr>
-                                <tr>
-                                    <p>
-                                        <th>Pimpinan/Kepala </th>
-                                        <th><?php echo $row['nama_pimpinan'] ?></th>
-                                    </p>
-                                </tr>
-                                <tr>
-                                    <p>
-                                        <th>No. Telp Perusahaan </th>
-                                        <th><?php echo $row['no_telp'] ?></th>
-                                    </p>
-                                </tr>
-                                <tr>
-                                    <p>
-                                        <th>Email Perusahaan </th>
-                                        <th><?php echo $row['email'] ?></th>
-                                    </p>
-                                </tr>
+                               
 
 
                             </b>
@@ -147,7 +124,7 @@ $bln = array(
 </div>
     <div style="text-align: center; display: inline-block; float: right;">
   <h5>
-    Banjarmasin , <?php echo tgl_indo(date('Y-m-d')); ?><br>
+    Tapin, <?php echo tgl_indo(date('Y-m-d')); ?><br>
     
     <br><br><br><br>
     Pimpinan

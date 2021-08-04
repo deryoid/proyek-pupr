@@ -29,13 +29,13 @@ include '../../templates/head.php';
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0 text-dark">Perusahaan</h1>
+                            <h1 class="m-0 text-dark">Anggaran Masuk</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="#">Home</a></li>
                                 <li class="breadcrumb-item active">Data Proyek</li>
-                                <li class="breadcrumb-item active">Perusahaan</li>
+                                <li class="breadcrumb-item active">Anggaran Masuk</li>
                                 <li class="breadcrumb-item active">Tambah Data</li>
                             </ol>
                         </div><!-- /.col -->
@@ -72,6 +72,12 @@ include '../../templates/head.php';
                                             <label for="nominal_masuk" class="col-sm-2 col-form-label">Nominal Masuk</label>
                                             <div class="col-sm-10">
                                                 <input type="text" class="form-control" id="nominal_masuk" name="nominal_masuk">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="nominal_masuk" class="col-sm-2 col-form-label">Tanggal Masuk</label>
+                                            <div class="col-sm-10">
+                                                <input type="date" class="form-control" id="tanggal_masuk" name="tanggal_masuk">
                                             </div>
                                         </div>
                                        
@@ -116,6 +122,7 @@ include '../../templates/head.php';
     if (isset($_POST['submit'])) {
         $asal_anggaran        = $_POST['asal_anggaran'];
         $nominal_masuk      = $_POST['nominal_masuk'];
+        $tanggal_masuk      = $_POST['tanggal_masuk'];
 
 
 
@@ -123,7 +130,8 @@ include '../../templates/head.php';
         $submit = $koneksi->query("INSERT INTO anggaran_masuk VALUES (
             NULL,
             '$asal_anggaran',
-            '$nominal_masuk'
+            '$nominal_masuk',
+            '$tanggal_masuk'
             )");
 
         if ($submit) {

@@ -51,7 +51,7 @@ include '../../templates/head.php';
                             <div class="card card-primary card-outline">
                                 <div class="card-header">
                                     <!-- <a href="tambah" class="btn bg-blue"><i class="fa fa-plus-circle"> Tambah Data</i></a> -->
-                                    <!-- <a href="print" target="blank" class="btn bg-white"><i class="fa fa-print"> Cetak</i></a> -->
+                                    <a href="print" target="blank" class="btn bg-yellow"><i class="fa fa-print"> Cetak</i></a>
                                 </div>
                                 <!-- /.card-header -->
                                 <div class="card-body">
@@ -79,7 +79,6 @@ include '../../templates/head.php';
                                                     <th>Status</th>
                                                     <th>Ket Tunda</th>
                                                     <th>Opsi</th>
-                                                    <th>Print</th>
                                                 </tr>
                                             </thead>
                                             <?php
@@ -106,9 +105,6 @@ include '../../templates/head.php';
                                                         <td width="40%"><?= $row['ket_tunda'] ?></td>
                                                         <td>
                                                             <a href="edit?id=<?= $row['id_proyek'] ?>" class="btn btn-success btn-sm" title="Edit"><i class="fa fa-edit"> Ubah Keterangan</i></a>
-                                                        </td>
-                                                        <td>
-                                                            <!-- <a href="printdetail?id=<?= $row['id_proyek'] ?>" class="btn btn-info btn-sm" target="blank" title="Detail"><i class="fa fa-print"></i></a> -->
                                                         </td>
                                                     </tr>
                                                 </tbody>

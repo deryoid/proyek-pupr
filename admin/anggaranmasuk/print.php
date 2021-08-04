@@ -4,7 +4,7 @@ include '../../config/koneksi.php';
 
 $no = 1;
 
-$data = $koneksi->query("SELECT * FROM perusahaan  ORDER BY id_perusahaan DESC");
+$data = $koneksi->query("SELECT * FROM anggaran_masuk ORDER BY id_am DESC");
 
 $bln = array(
     '01' => 'Januari',
@@ -43,7 +43,7 @@ $bln = array(
     <hr size="2px" color="black">
   </b></p> -->
     <p align="center"><b>
-            <font size="5">Output Perusahaan</font> <br>
+            <font size="5">Laporan Anggaran</font> <br>
             <hr size="2px" color="black">
         </b></p>
 
@@ -54,9 +54,9 @@ $bln = array(
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Nama Perusahaan</th>
-                            <th>Bidang Perusahaan</th>
-                            <th>Alamat</th>
+                            <th>Asal Anggaran</th>
+                            <th>Nominal Masuk</th>
+                            <th>Tanggal Masuk</th>
                         </tr>
                     </thead>
 
@@ -64,9 +64,9 @@ $bln = array(
                         <?php while ($row = mysqli_fetch_array($data)) { ?>
                             <tr>
                                 <td align="center"><?= $no++ ?></td>
-                                <td><?= $row['nama_perusahaan'] ?></td>
-                                <td><?= $row['bidang_perusahaan'] ?></td>
-                                <td><?= $row['alamat_perusahaan'] ?></td>
+                                <td><?= $row['asal_anggaran'] ?></td>
+                                <td><?= $row['nominal_masuk'] ?></td>
+                                <td><?= $row['tanggal_masuk'] ?></td>
                             </tr>
                         <?php } ?>
                     </tbody>
@@ -83,7 +83,7 @@ $bln = array(
     </div>
     <div style="text-align: center; display: inline-block; float: right;">
   <h5>
-    Banjarmasin , <?php echo tgl_indo(date('Y-m-d')); ?><br>
+    Tapin, <?php echo tgl_indo(date('Y-m-d')); ?><br>
     
     <br><br><br><br>
     Kepala Dinas

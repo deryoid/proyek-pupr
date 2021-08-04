@@ -35,15 +35,15 @@ $bln = array(
 </head>
 
 <body>
-<img src="<?=base_url('assets/dist/img/logo_pln.jpg')?>" align="left" width="90" height="90">
+<!-- <img src="<?=base_url('assets/dist/img/logo_pln.jpg')?>" align="left" width="90" height="90">
   <p align="center"><b>
     <font size="7">PT. GERAI INDAH MARABAHAN</font> <br> <br> <br> <br>
     <hr size="2px" color="black">
     <center><font size="2">Alamat : Jl. AES Nasution, Marabahan Kota, Marabahan Kabupaten Barito Kuala Kalimantan Selatan </font></center>
     <hr size="2px" color="black">
-  </b></p>
+  </b></p> -->
     <p align="center"><b>
-            <font size="5">Output Data Proyek yang Di Tanggapi</font> <br>
+            <font size="5">Laporan Proyek yang Mulai Pekerjaan</font> <br>
             <hr size="2px" color="black">
         </b></p>
 
@@ -60,7 +60,6 @@ $bln = array(
                             <th>Lokasi Pengerjaan</th>
                             <th>Estimasi Pengerjaan</th>
                             <th>Tanggal Mulai</th>
-                            <th>Tanggal Selesai</th>
                             <th>Status</th>
                         </tr>
                     </thead>
@@ -75,7 +74,6 @@ $bln = array(
                                 <td><?= $row['alamat_proyek'] ?></td>
                                 <td><?= $row['estimasi'] ?></td>
                                 <td><?= tgl_indo($row['tgl_mulai']) ?></td>
-                                <td><?= tgl_indo($row['tgl_selesai']) ?></td>
                                 <td><?= $row['status_proyek'] ?></td>
                             </tr>
                         <?php } ?>
@@ -91,7 +89,7 @@ $bln = array(
     </div>
     <div style="text-align: center; display: inline-block; float: right;">
   <h5>
-    Banjarmasin , <?php echo tgl_indo(date('Y-m-d')); ?><br>
+    Tapin, <?php echo tgl_indo(date('Y-m-d')); ?><br>
     
     <br><br><br><br>
     Pimpinan

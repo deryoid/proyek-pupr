@@ -77,6 +77,7 @@ include '../../templates/head.php';
                                                     <th>Lokasi Pengerjaan</th>
                                                     <th>Estimasi Pengerjaan</th>
                                                     <th>Tanggal Mulai</th>
+                                                    <th>Tanggal Selesai</th>
                                                     <th>Progres Pengerjaan</th>
                                                     <th>Status</th>
                                                     <th>Opsi</th>
@@ -84,7 +85,7 @@ include '../../templates/head.php';
                                             </thead>
                                             <?php
                                             $no = 1;
-                                            $data = $koneksi->query("SELECT * FROM proyek as p LEFT JOIN perusahaan as pr ON p.id_perusahaan = pr.id_perusahaan WHERE p.status_proyek = 'Di Tanggapi' AND p.status_jalan = 'Di Jalankan'");
+                                            $data = $koneksi->query("SELECT * FROM proyek as p LEFT JOIN perusahaan as pr ON p.id_perusahaan = pr.id_perusahaan WHERE p.status_proyek = 'Di Tanggapi' AND p.progres = '100'");
                                             while ($row = $data->fetch_array()) {
                                             ?>
                                                 <tbody style="background-color: azure">
@@ -96,6 +97,7 @@ include '../../templates/head.php';
                                                         <td><?= $row['alamat_proyek'] ?></td>
                                                         <td><?= $row['estimasi'] ?></td>
                                                         <td><?= $row['tgl_mulai'] ?></td>
+                                                        <td><?= $row['tgl_selesai'] ?></td>
                                                         <td class="project_progress">
                                                             <div class="progress progress-sm">
                                                                 <div class="progress-bar bg-green" role="progressbar" aria-valuenow="<?= $row['progres'] ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?= $row['progres'] ?>%">

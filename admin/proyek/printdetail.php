@@ -4,8 +4,8 @@ include '../../config/koneksi.php';
 
 $id   = $_GET['id'];
 $data = $koneksi->query("SELECT * FROM proyek as p 
-LEFT JOIN perusahaan as pr 
-ON p.id_perusahaan = pr.id_perusahaan  
+LEFT JOIN perusahaan as pr ON p.id_perusahaan = pr.id_perusahaan
+LEFT JOIN anggaran_masuk as am ON p.id_am = am.id_am 
 WHERE p.id_proyek = '$id' ");
 
 $row  = $data->fetch_array();
@@ -144,7 +144,7 @@ $bln = array(
 </div>
     <div style="text-align: center; display: inline-block; float: right;">
   <h5>
-    Banjarmasin , <?php echo tgl_indo(date('Y-m-d')); ?><br>
+    Tapin, <?php echo tgl_indo(date('Y-m-d')); ?><br>
     
     <br><br><br><br>
     Kepala Dinas

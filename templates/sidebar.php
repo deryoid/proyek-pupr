@@ -126,14 +126,22 @@
               </p>
             </a>
           </li>
-          <!-- <li class="nav-item">
-            <a href="<?= base_url('admin/detailproyek/') ?>" class="nav-link">
-              <i class="nav-icon fas fa-truck-monster"></i>
+          <li class="nav-item">
+            <a href="<?= base_url('admin/proyekselesai/') ?>" class="nav-link">
+              <i class="nav-icon fas fa-check"></i>
               <p>
-                Detail Barang Proyek
+                Proyek Selesai Pengerjaan
               </p>
             </a>
-          </li> -->
+          </li>
+          <li class="nav-item">
+            <a href="<?= base_url('admin/printrekap.php') ?>" target="blank" class="nav-link">
+              <i class="nav-icon fas fa-print"></i>
+              <p>
+                Cetak Rekap Keseluruhan
+              </p>
+            </a>
+          </li>
 
         </ul>
       </nav>

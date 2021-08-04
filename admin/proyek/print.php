@@ -4,7 +4,10 @@ include '../../config/koneksi.php';
 
 $no = 1;
 
-$data = $koneksi->query("SELECT * FROM proyek as p LEFT JOIN perusahaan as pr ON p.id_perusahaan = pr.id_perusahaan ORDER BY p.id_perusahaan DESC");
+$data = $koneksi->query("SELECT * FROM proyek as p 
+LEFT JOIN perusahaan as pr ON p.id_perusahaan = pr.id_perusahaan
+LEFT JOIN anggaran_masuk as am ON p.id_am = am.id_am 
+ORDER BY p.id_perusahaan DESC");
 
 $bln = array(
     '01' => 'Januari',
@@ -43,7 +46,7 @@ $bln = array(
     <hr size="2px" color="black">
   </b></p> -->
     <p align="center"><b>
-            <font size="5">Output Proyek</font> <br>
+            <font size="5">Laporan Proyek</font> <br>
             <hr size="2px" color="black">
         </b></p>
 
@@ -72,7 +75,7 @@ $bln = array(
                                 <td><?= $row['nama_perusahaan'] ?></td>
                                 <td><?= $row['alamat_proyek'] ?></td>
                                 <td><?= $row['estimasi'] ?></td>
-                                <td><?= $row['biaya'] ?></td>
+                                <td><?= $row['asal_anggaran'] ?></td>
                             </tr>
                         <?php } ?>
                     </tbody>
@@ -90,7 +93,7 @@ $bln = array(
     </div>
     <div style="text-align: center; display: inline-block; float: right;">
   <h5>
-    Banjarmasin , <?php echo tgl_indo(date('Y-m-d')); ?><br>
+    Tapin, <?php echo tgl_indo(date('Y-m-d')); ?><br>
     
     <br><br><br><br>
     Kepala Dinas

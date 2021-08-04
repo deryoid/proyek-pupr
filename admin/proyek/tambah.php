@@ -101,9 +101,17 @@ include '../../templates/head.php';
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label for="rencana_biaya" class="col-sm-2 col-form-label">Rencana Biaya</label>
+                                            <label for="rencana_biaya" class="col-sm-2 col-form-label">Asal Anggaran</label>
                                             <div class="col-sm-10">
-                                                <input type="number" class="form-control" id="biaya" name="rencana_biaya">
+                                            <select class="form-control select2" data-placeholder="Pilih" id="id_am" name="id_am">
+                                                    <option value=""></option>
+                                                    <?php
+                                                    $data1 = $koneksi->query("SELECT * FROM anggaran_masuk ORDER BY id_am ASC");
+                                                    while ($dsn = $data1->fetch_array()) {
+                                                    ?>
+                                                        <option value="<?= $dsn['id_am'] ?>"><?= $dsn['asal_anggaran'] ?></option>
+                                                    <?php } ?>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
@@ -150,7 +158,7 @@ include '../../templates/head.php';
         $id_perusahaan      = $_POST['id_perusahaan'];
         $alamat_proyek      = $_POST['alamat_proyek'];
         $estimasi           = $_POST['estimasi'];
-        $rencana_biaya           = $_POST['rencana_biaya'];
+        $id_am           = $_POST['id_am'];
 
         $submit = $koneksi->query("INSERT INTO proyek VALUES (
             NULL,
@@ -164,7 +172,8 @@ include '../../templates/head.php';
             NULL,
             NULL,
             NULL,
-            '$rencana_biaya',
+            '$id_am',
+            NULL,
             NULL,
             NULL
             )");

@@ -51,7 +51,7 @@ include '../../templates/head.php';
                             <div class="card card-primary card-outline">
                                 <div class="card-header">
                                     <a href="tambah" class="btn bg-blue"><i class="fa fa-plus-circle"> Tambah Data</i></a>
-                                    <!-- <a href="print" target="blank" class="btn bg-white"><i class="fa fa-print"> Cetak</i></a> -->
+                                    <a href="print" target="blank" class="btn bg-yellow"><i class="fa fa-print"> Cetak</i></a>
                                 </div>
                                 <!-- /.card-header -->
                                 <div class="card-body">
@@ -72,7 +72,6 @@ include '../../templates/head.php';
                                                 <tr align="center">
                                                     <th>No</th>
                                                     <th>Asal Anggaran</th>
-                                                    <th>Nominal Masuk</th>
                                                     <th>Opsi</th>
                                                 </tr>
                                             </thead>
@@ -85,8 +84,8 @@ include '../../templates/head.php';
                                                     <tr>
                                                         <td align="center"><?= $no++ ?></td>
                                                         <td><?= $row['asal_anggaran'] ?></td>
-                                                        <td><?= $row['nominal_masuk'] ?></td>
                                                         <td align="center">
+                                                            <a href="printdetail?id=<?= $row['id_am'] ?>" target="blank" class="btn btn-info btn-sm" title="detail"><i class="fa fa-print"></i></a>
                                                             <a href="edit?id=<?= $row['id_am'] ?>" class="btn btn-success btn-sm" title="Edit"><i class="fa fa-edit"></i></a>
                                                             <a href="hapus?id=<?= $row['id_am'] ?>" class="btn btn-danger btn-sm alert-hapus" title="Hapus"><i class="fa fa-trash"></i></a>
                                                         </td>

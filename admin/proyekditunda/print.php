@@ -35,7 +35,7 @@ $bln = array(
 </head>
 
 <body>
-<img src="<?=base_url('assets/dist/img/logo_pln.jpg')?>" align="left" width="90" height="90">
+<!-- <img src="<?=base_url('assets/dist/img/logo_pln.jpg')?>" align="left" width="90" height="90">
   <p align="center"><b>
     <font size="7">PT. GERAI INDAH MARABAHAN</font> <br> <br> <br> <br>
     <hr size="2px" color="black">
@@ -45,10 +45,10 @@ $bln = array(
     <p align="center"><b>
             <font size="5">Output Data Proyek yang Di Tanggapi</font> <br>
             <hr size="2px" color="black">
-        </b></p>
+        </b></p> -->
 
     <p align="center"><b>
-            <font size="5">Output Data Proyek yang Di Tunda</font> <br>
+            <font size="5">Laporan Data Proyek Keterangan Tunda</font> <br>
             <hr size="2px" color="black">
         </b></p>
 
@@ -94,7 +94,7 @@ $bln = array(
     </div>
     <div style="text-align: center; display: inline-block; float: right;">
   <h5>
-    Banjarmasin , <?php echo tgl_indo(date('Y-m-d')); ?><br>
+    Tapin, <?php echo tgl_indo(date('Y-m-d')); ?><br>
     
     <br><br><br><br>
     Pimpinan

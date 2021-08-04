@@ -51,7 +51,7 @@ include '../../templates/head.php';
                             <div class="card card-primary card-outline">
                                 <div class="card-header">
                                     <a href="tambah" class="btn bg-blue"><i class="fa fa-plus-circle"> Tambah Data</i></a>
-                                    <!-- <a href="print" target="blank" class="btn bg-white"><i class="fa fa-print"> Cetak</i></a> -->
+                                    <a href="print" target="blank" class="btn bg-yellow"><i class="fa fa-print"> Cetak</i></a>
                                 </div>
                                 <!-- /.card-header -->
                                 <div class="card-body">
@@ -76,14 +76,17 @@ include '../../templates/head.php';
                                                     <th>Perusahaan</th>
                                                     <th>Lokasi Pengerjaan</th>
                                                     <th>Estimasi Pengerjaan</th>
-                                                    <th>Rencana Biaya</th>
+                                                    <th>Asal Anggaran</th>
                                                     <th>Status</th>
                                                     <th>Opsi</th>
                                                 </tr>
                                             </thead>
                                             <?php
                                             $no = 1;
-                                            $data = $koneksi->query("SELECT * FROM proyek as p LEFT JOIN perusahaan as pr ON p.id_perusahaan = pr.id_perusahaan ORDER BY p.id_perusahaan DESC");
+                                            $data = $koneksi->query("SELECT * FROM proyek as p 
+                                            LEFT JOIN perusahaan as pr ON p.id_perusahaan = pr.id_perusahaan
+                                            LEFT JOIN anggaran_masuk as am ON p.id_am = am.id_am 
+                                            ORDER BY p.id_perusahaan DESC");
                                             while ($row = $data->fetch_array()) {
                                             ?>
                                                 <tbody style="background-color: azure">
@@ -94,7 +97,7 @@ include '../../templates/head.php';
                                                         <td><?= $row['nama_perusahaan'] ?></td>
                                                         <td><?= $row['alamat_proyek'] ?></td>
                                                         <td><?= $row['estimasi'] ?></td>
-                                                        <td><?= "Rp.".$row['rencana_biaya'] ?></td>
+                                                        <td><?= $row['asal_anggaran'] ?></td>
                                                         <td align="center">
                                                             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                                                                 <?php if ($row['status_proyek'] == "Menunggu") { ?>
@@ -113,7 +116,7 @@ include '../../templates/head.php';
                                                         </td>
                                                         
                                                         <td align="center">
-                                                            <!-- <a href="printdetail?id=<?= $row['id_proyek'] ?>" class="btn btn-info btn-sm" target="blank" title="Detail"><i class="fa fa-print"></i></a> -->
+                                                            <a href="printdetail?id=<?= $row['id_proyek'] ?>" class="btn btn-info btn-sm" target="blank" title="Detail"><i class="fa fa-print"></i></a>
                                                             <a href="edit?id=<?= $row['id_proyek'] ?>" class="btn btn-success btn-sm" title="Edit"><i class="fa fa-edit"></i></a>
                                                             <a href="hapus?id=<?= $row['id_proyek'] ?>" class="btn btn-danger btn-sm alert-hapus" title="Hapus"><i class="fa fa-trash"></i></a>
                                                         </td>

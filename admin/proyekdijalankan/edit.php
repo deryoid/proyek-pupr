@@ -112,8 +112,8 @@ include '../../templates/head.php';
                                             </select>
                                             </div>
                                         </div>
-
-
+                                        <input type="hidden" class="form-control" name="tgl_progres" value="<?php echo tgl_indo(date('Y-m-d')); ?>" readonly>
+                                        
                                     </div>
                                     <!-- /.card-body -->
 
@@ -154,14 +154,17 @@ include '../../templates/head.php';
     <?php
     if (isset($_POST['submit'])) {
         $progres        = $_POST['progres'];
+        $tgl_progres        = $_POST['tgl_progres'];
 
 
 
 
         $submit = $koneksi->query("UPDATE proyek SET  
-                            progres = '$progres'
+                            progres = '$progres',
+                            tgl_progres = '$tgl_progres'
                             WHERE 
                             id_proyek = '$id'");
+        // var_dump($submit, $koneksi->error); die();
 
         if ($submit) {
             $_SESSION['pesan'] = "Data Proyek Diubah";
@@ -172,5 +175,31 @@ include '../../templates/head.php';
     ?>
 
 </body>
+<?php
+    function tgl_indo($tanggal)
+    {
+        $bulan = array(
+            1 =>   'Januari',
+            'Februari',
+            'Maret',
+            'April',
+            'Mei',
+            'Juni',
+            'Juli',
+            'Agustus',
+            'September',
+            'Oktober',
+            'November',
+            'Desember'
+        );
+        $pecahkan = explode('-', $tanggal);
 
+        // variabel pecahkan 0 = tanggal
+        // variabel pecahkan 1 = bulan
+        // variabel pecahkan 2 = tahun
+
+        return $pecahkan[2] . ' ' . $bulan[(int) $pecahkan[1]] . ' ' . $pecahkan[0];
+    }
+
+    ?>
 </html>
