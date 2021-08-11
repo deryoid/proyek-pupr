@@ -3,7 +3,9 @@ require '../../config/config.php';
 require '../../config/koneksi.php';
 
 $id   = $_GET['id'];
-$data = $koneksi->query("SELECT * FROM proyek WHERE id_proyek = '$id'");
+$data = $koneksi->query("SELECT * FROM proyek AS p 
+LEFT JOIN perusahaan AS pr ON p.id_perusahaan = pr.id_perusahaan 
+LEFT JOIN anggaran_masuk AS a ON p.id_am = a.id_am WHERE p.id_proyek = '$id'");
 $row  = $data->fetch_array();
 ?>
 <!DOCTYPE html>
@@ -93,7 +95,7 @@ include '../../templates/head.php';
                                             <input type="date" class="form-control" id="tgl_selesai" value="<?= $row['tgl_selesai'] ?>" name="tgl_selesai">
                                             </div>
                                         </div>
-                                        
+                                        <!-- <input type="text" value="<?= $row['biaya_akhir']?>"> -->
                                     </div>
                                     <!-- /.card-body -->
 
@@ -146,6 +148,11 @@ include '../../templates/head.php';
         // var_dump($submit, $koneksi->error); die();
 
         if ($submit) {
+            $koneksi->query("UPDATE anggaran_masuk SET 
+            nominal_masuk = nominal_masuk - '$row[biaya_akhir]' 
+               WHERE id_am = '$row[id_am]'
+               ");
+
             $_SESSION['pesan'] = "Data Proyek Diubah";
             echo "<script>window.location.replace('../proyekselesai/');</script>";
         }

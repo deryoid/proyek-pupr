@@ -4,7 +4,10 @@ include '../../config/koneksi.php';
 
 $no = 1;
 
-$data = $koneksi->query("SELECT * FROM proyek as p LEFT JOIN perusahaan as pr ON p.id_perusahaan = pr.id_perusahaan WHERE p.status_proyek = 'Di Tanggapi' AND p.progres = '100'");
+$data = $koneksi->query("SELECT * FROM proyek as p 
+LEFT JOIN perusahaan as pr ON p.id_perusahaan = pr.id_perusahaan 
+LEFT JOIN anggaran_masuk as am ON p.id_am = am.id_am
+WHERE p.status_proyek = 'Di Tanggapi' AND p.progres = '100'");
 
 $bln = array(
     '01' => 'Januari',
@@ -62,6 +65,7 @@ $bln = array(
                         <th>Tanggal Mulai</th>
                         <th>Tanggal Selesai</th>
                         <th>Progres Pengerjaan</th>
+                        <th>Sisa Anggaran</th>
                         <th>Status</th>
                         </tr>
                     </thead>
@@ -95,6 +99,7 @@ $bln = array(
                                                                 
                                                             </small>
                                                         </td>
+                                                        <td><?= $row['nominal_masuk']?></td>
                                                         <td align="center">
                                                             <?php if ($row['status_jalan'] == "Menunggu") { ?>
                                                                 <span class="badge badge-warning"><?= $row['status_jalan'] ?></span>

@@ -60,6 +60,7 @@ $bln = array(
                         <th>Lokasi Pengerjaan</th>
                         <th>Estimasi Pengerjaan</th>
                         <th>Tanggal Mulai</th>
+                        <th>Anggaran yang Telah Dikeluarkan</th>
                         <th>Progres Pengerjaan</th>
                         <th>Status</th>
                         </tr>
@@ -75,6 +76,7 @@ $bln = array(
                                                         <td><?= $row['alamat_proyek'] ?></td>
                                                         <td><?= $row['estimasi'] ?></td>
                                                         <td><?= $row['tgl_mulai'] ?></td>
+                                                        <td><?= $row['biaya_akhir'] ?></td>
                                                         <td class="project_progress">
                                                             <div class="progress progress-sm">
                                                                 <div class="progress-bar bg-green" role="progressbar" aria-valuenow="<?= $row['progres'] ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?= $row['progres'] ?>%">

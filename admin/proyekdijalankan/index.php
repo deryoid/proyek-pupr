@@ -78,6 +78,7 @@ include '../../templates/head.php';
                                                     <th>Estimasi Pengerjaan</th>
                                                     <th>Tanggal Mulai</th>
                                                     <th>Progres Pengerjaan</th>
+                                                    <th>Anggaran yang Telah Dikeluarkan</th>
                                                     <th>Status</th>
                                                     <th>Opsi</th>
                                                 </tr>
@@ -114,6 +115,7 @@ include '../../templates/head.php';
                                                                 
                                                             </small>
                                                         </td>
+                                                        <td><?= $row['biaya_akhir'] ?></td>
                                                         <td align="center">
                                                             <?php if ($row['status_jalan'] == "Menunggu") { ?>
                                                                 <span class="badge badge-warning"><?= $row['status_jalan'] ?></span>

@@ -79,13 +79,17 @@ include '../../templates/head.php';
                                                     <th>Tanggal Mulai</th>
                                                     <th>Tanggal Selesai</th>
                                                     <th>Progres Pengerjaan</th>
+                                                    <th>Siswa Anggaran Akhir</th>
                                                     <th>Status</th>
                                                     <th>Opsi</th>
                                                 </tr>
                                             </thead>
                                             <?php
                                             $no = 1;
-                                            $data = $koneksi->query("SELECT * FROM proyek as p LEFT JOIN perusahaan as pr ON p.id_perusahaan = pr.id_perusahaan WHERE p.status_proyek = 'Di Tanggapi' AND p.progres = '100'");
+                                            $data = $koneksi->query("SELECT * FROM proyek AS p 
+                                            LEFT JOIN perusahaan AS pr ON p.id_perusahaan = pr.id_perusahaan 
+                                            LEFT JOIN anggaran_masuk AS a ON p.id_am = a.id_am
+                                            WHERE p.status_proyek = 'Di Tanggapi' AND p.progres = '100'");
                                             while ($row = $data->fetch_array()) {
                                             ?>
                                                 <tbody style="background-color: azure">
@@ -115,7 +119,8 @@ include '../../templates/head.php';
                                                                
                                                                 
                                                             </small>
-                                                        </td>
+                                                            </td>
+                                                            <td><?= $row['nominal_masuk'] ?></td>
                                                         <td align="center">
                                                             <?php if ($row['status_jalan'] == "Menunggu") { ?>
                                                                 <span class="badge badge-warning"><?= $row['status_jalan'] ?></span>
