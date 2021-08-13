@@ -79,8 +79,9 @@ include '../../templates/head.php';
                                                     <th>Tanggal Mulai</th>
                                                     <th>Tanggal Selesai</th>
                                                     <th>Progres Pengerjaan</th>
-                                                    <th>Siswa Anggaran Akhir</th>
+                                                    <th>Sisa Anggaran Akhir</th>
                                                     <th>Status</th>
+                                                    <th>Berita Acara</th>
                                                     <th>Opsi</th>
                                                 </tr>
                                             </thead>
@@ -129,8 +130,15 @@ include '../../templates/head.php';
                                                             <?php } ?>
 
                                                         </td>
+                                                        <td><?= $row['berita_acara'] ?></td>
                                                         <td align="center">
-                                                            <a href="edit?id=<?= $row['id_proyek'] ?>" class="btn btn-info btn-sm"  title="Progress"><i class="fa fa-spinner"></i></a>
+                                                            <a href="edit?id=<?= $row['id_proyek'] ?>" class="btn btn-info btn-sm"  title="Progress"><i class="fa fa-spinner"></i></a><br>
+                                                            <?php if ($row['nominal_masuk'] <= 0) {?>
+                                                              
+                                                            <?php }else{ ?>
+                                                                <a href="beritaacara?id=<?= $row['id_proyek'] ?>" class="btn btn-primary btn-sm"  title="Berita Acara"><i class="fa fa-tasks"></i></a>   
+                                                               <?php }?>
+                                                           
                                                         </td>
                                                     </tr>
                                                 </tbody>

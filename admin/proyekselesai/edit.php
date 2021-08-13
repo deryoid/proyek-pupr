@@ -100,7 +100,7 @@ include '../../templates/head.php';
                                     <!-- /.card-body -->
 
                                     <div class="card-footer" style="background-color: white;">
-                                        <a href="<?= base_url('admin/perusahaan/') ?>" class="btn bg-gradient-secondary float-right"><i class="fa fa-arrow-left"> Batal</i></a>
+                                        <a href="<?= base_url('admin/proyekselesai/') ?>" class="btn bg-gradient-secondary float-right"><i class="fa fa-arrow-left"> Batal</i></a>
                                         <button type="submit" name="submit" class="btn bg-gradient-primary float-right mr-2"><i class="fa fa-save"> Tambah Keterangan Tunda</i></button>
                                     </div>
                                     <!-- /.card-footer -->

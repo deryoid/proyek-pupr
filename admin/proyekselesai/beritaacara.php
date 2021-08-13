@@ -1,6 +1,12 @@
 <?php
 require '../../config/config.php';
 require '../../config/koneksi.php';
+
+$id   = $_GET['id'];
+$data = $koneksi->query("SELECT * FROM proyek AS p 
+LEFT JOIN perusahaan AS pr ON p.id_perusahaan = pr.id_perusahaan 
+LEFT JOIN anggaran_masuk AS a ON p.id_am = a.id_am WHERE p.id_proyek = '$id'");
+$row  = $data->fetch_array();
 ?>
 <!DOCTYPE html>
 <html>
@@ -29,14 +35,14 @@ include '../../templates/head.php';
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0 text-dark">Proyek</h1>
+                            <h1 class="m-0 text-dark">Ubah Proyek</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="#">Home</a></li>
                                 <li class="breadcrumb-item active">Data Proyek</li>
                                 <li class="breadcrumb-item active">Proyek</li>
-                                <li class="breadcrumb-item active">Tambah Data</li>
+                                <li class="breadcrumb-item active">Ubah Data</li>
                             </ol>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
@@ -62,64 +68,47 @@ include '../../templates/head.php';
                                     <div class="card-body" style="background-color: white;">
 
 
+
                                         <div class="form-group row">
                                             <label for="kode_proyek" class="col-sm-2 col-form-label">Kode Proyek</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" id="kode_proyek" name="kode_proyek">
+                                                <input type="text" class="form-control" id="kode_proyek" value="<?= $row['kode_proyek'] ?>" readonly>
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label for="nama_proyek" class="col-sm-2 col-form-label">Nama Proyek</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" id="nama_proyek" name="nama_proyek">
+                                                <input type="text" class="form-control" id="nama_proyek" value="<?= $row['nama_proyek'] ?>" readonly>
                                             </div>
                                         </div>
-                                        <div class="form-group row">
-                                            <label for="id_perusahaan" class="col-sm-2 col-form-label">Perusahaan yang Menaungi</label>
-                                            <div class="col-sm-10">
-                                                <select class="form-control select2" data-placeholder="Pilih" id="id_perusahaan" name="id_perusahaan">
-                                                    <option value=""></option>
-                                                    <?php
-                                                    $data1 = $koneksi->query("SELECT * FROM perusahaan ORDER BY id_perusahaan ASC");
-                                                    while ($dsn = $data1->fetch_array()) {
-                                                    ?>
-                                                        <option value="<?= $dsn['id_perusahaan'] ?>"><?= $dsn['nama_perusahaan'] ?></option>
-                                                    <?php } ?>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class=" form-group row">
-                                            <label for="alamat_proyek" class="col-sm-2 col-form-label">Alamat Proyek</label>
-                                            <div class="col-sm-10">
-                                                <textarea class="form-control" rows="3" name="alamat_proyek"></textarea>
-                                            </div>
-                                        </div>
+
                                         <div class="form-group row">
                                             <label for="estimasi" class="col-sm-2 col-form-label">Estimasi Pengerjaan</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" id="estimasi" name="estimasi">
+                                                <input type="text" class="form-control" id="estimasi" value="<?= $row['estimasi'] ?>" readonly>
                                             </div>
                                         </div>
+
                                         <div class="form-group row">
-                                            <label for="rencana_biaya" class="col-sm-2 col-form-label">Asal Anggaran</label>
+                                            <label for="up_prog" class="col-sm-2 col-form-label">Tanggal Proyek Selesai</label>
                                             <div class="col-sm-10">
-                                            <select class="form-control select2" data-placeholder="Pilih" id="id_am" name="id_am">
-                                                    <option value=""></option>
-                                                    <?php
-                                                    $data1 = $koneksi->query("SELECT * FROM anggaran_masuk ORDER BY id_am ASC");
-                                                    while ($dsn = $data1->fetch_array()) {
-                                                    ?>
-                                                        <option value="<?= $dsn['id_am'] ?>"><?= $dsn['asal_anggaran'] ?></option>
-                                                    <?php } ?>
-                                                </select>
+                                            <input type="date" class="form-control" value="<?= $row['tgl_selesai'] ?>" readonly>
                                             </div>
                                         </div>
+                                        
+                                        <div class="form-group row">
+                                            <label for="up_prog" class="col-sm-2 col-form-label">Berita Acara</label>
+                                            <div class="col-sm-10">
+                                            <textarea class="textarea" name ="berita_acara" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+                                            </div>
+                                        </div>
+                                        <!-- <input type="text" value="<?= $row['biaya_akhir']?>"> -->
                                     </div>
                                     <!-- /.card-body -->
 
                                     <div class="card-footer" style="background-color: white;">
-                                        <a href="<?= base_url('admin/proyek/') ?>" class="btn bg-gradient-secondary float-right"><i class="fa fa-arrow-left"> Batal</i></a>
-                                        <button type="submit" name="submit" class="btn bg-gradient-primary float-right mr-2"><i class="fa fa-save"> Simpan</i></button>
+                                        <a href="<?= base_url('admin/proyekselesai/') ?>" class="btn bg-gradient-secondary float-right"><i class="fa fa-arrow-left"> Batal</i></a>
+                                        <button type="submit" name="submit" class="btn bg-gradient-primary float-right mr-2"><i class="fa fa-save"> Tambah Keterangan Tunda</i></button>
                                     </div>
                                     <!-- /.card-footer -->
 
@@ -153,41 +142,51 @@ include '../../templates/head.php';
 
     <?php
     if (isset($_POST['submit'])) {
-        $kode_proyek        = $_POST['kode_proyek'];
-        $nama_proyek        = $_POST['nama_proyek'];
-        $id_perusahaan      = $_POST['id_perusahaan'];
-        $alamat_proyek      = $_POST['alamat_proyek'];
-        $estimasi           = $_POST['estimasi'];
-        $id_am           = $_POST['id_am'];
+        $berita_acara        = $_POST['berita_acara'];
 
-        $submit = $koneksi->query("INSERT INTO proyek VALUES (
-            NULL,
-            '$kode_proyek',
-            '$nama_proyek',
-            '$id_perusahaan',
-            '$alamat_proyek',
-            '$estimasi',
-            'Menunggu',
-            NULL,
-            NULL,
-            NULL,
-            NULL,
-            '$id_am',
-            NULL,
-            NULL,
-            NULL,
-            NULL
-            )");
+
+
+
+        $submit = $koneksi->query("UPDATE proyek SET  
+                            berita_acara = '$berita_acara'
+                            WHERE 
+                            id_proyek = '$id'");
+        // var_dump($submit, $koneksi->error); die();
 
         if ($submit) {
-
-            $_SESSION['pesan'] = "Data Proyek Ditambahkan";
-            echo "<script>window.location.replace('../proyek/');</script>";
+            $_SESSION['pesan'] = "Berita Acara Dibuat";
+            echo "<script>window.location.replace('../proyekselesai/');</script>";
         }
     }
+
     ?>
 
-
 </body>
+<?php
+    function tgl_indo($tanggal)
+    {
+        $bulan = array(
+            1 =>   'Januari',
+            'Februari',
+            'Maret',
+            'April',
+            'Mei',
+            'Juni',
+            'Juli',
+            'Agustus',
+            'September',
+            'Oktober',
+            'November',
+            'Desember'
+        );
+        $pecahkan = explode('-', $tanggal);
 
+        // variabel pecahkan 0 = tanggal
+        // variabel pecahkan 1 = bulan
+        // variabel pecahkan 2 = tahun
+
+        return $pecahkan[2] . ' ' . $bulan[(int) $pecahkan[1]] . ' ' . $pecahkan[0];
+    }
+
+    ?>
 </html>

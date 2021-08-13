@@ -35,13 +35,16 @@ $bln = array(
 </head>
 
 <body>
-<!-- <img src="<?=base_url('assets/dist/img/logo_pln.jpg')?>" align="left" width="90" height="90">
+<img src="<?=base_url('assets/dist/img/icon-kop.png')?>" align="left" width="100" height="100">
   <p align="center"><b>
-    <font size="7">PT. GERAI INDAH MARABAHAN</font> <br> <br> <br> <br>
+    <font size="4">PEMERINTAH KABUPATEN TAPIN</font> <br>
+    <font size="3">DINAS PEKERJAAN UMUM  DAN PENATAAN RUANG</font> <br>
+    <font size="2">Jl. Brigjend. H. Hasan Basry Km. 04 Telp. (0517) 31055 – 31029</font> <br>
+    <font size="2">B I T A H A N – R A N T A U</font> <br>
+    <font size="2">email :humasputapinkab@gmail.com Kode Pos  71154</font> <br>
     <hr size="2px" color="black">
-    <center><font size="2">Alamat : Jl. AES Nasution, Marabahan Kota, Marabahan Kabupaten Barito Kuala Kalimantan Selatan </font></center>
     <hr size="2px" color="black">
-  </b></p> -->
+  </b></p>
     <p align="center"><b>
             <font size="5">Laporan Proyek yang Mulai Pekerjaan</font> <br>
             <hr size="2px" color="black">
