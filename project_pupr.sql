@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Waktu pembuatan: 11 Agu 2021 pada 15.22
+-- Waktu pembuatan: 13 Agu 2021 pada 15.00
 -- Versi server: 5.7.24
 -- Versi PHP: 7.4.12
 
@@ -39,9 +39,9 @@ CREATE TABLE `anggaran_masuk` (
 --
 
 INSERT INTO `anggaran_masuk` (`id_am`, `asal_anggaran`, `nominal_masuk`, `tanggal_masuk`) VALUES
-(1, 'PAGU', '15000000', '2021-08-04'),
+(1, 'PAGU', '0', '2021-08-04'),
 (2, 'Perorangan', '10000000000', '2021-08-04'),
-(3, 'APBU', '5000000000', '2021-08-04');
+(3, 'APBU', '0', '2021-08-04');
 
 -- --------------------------------------------------------
 
@@ -94,17 +94,18 @@ CREATE TABLE `proyek` (
   `id_am` int(11) DEFAULT NULL,
   `biaya_akhir` varchar(250) DEFAULT NULL,
   `progres` varchar(25) DEFAULT NULL,
-  `tgl_progres` varchar(25) DEFAULT NULL
+  `tgl_progres` varchar(25) DEFAULT NULL,
+  `berita_acara` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `proyek`
 --
 
-INSERT INTO `proyek` (`id_proyek`, `kode_proyek`, `nama_proyek`, `id_perusahaan`, `alamat_proyek`, `estimasi`, `status_proyek`, `status_jalan`, `ket_tunda`, `tgl_mulai`, `tgl_selesai`, `id_am`, `biaya_akhir`, `progres`, `tgl_progres`) VALUES
-(1, 'K1', 'Pembangunan Jembatan', 8, 'Jembatan Batola', '5 Tahun ', 'Di Tanggapi', 'Proyek Selesai', NULL, '2021-07-09', '2021-08-04', 1, NULL, '100', '04 Agustus 2021'),
-(2, 'PR5523', 'Pembangunan Jembatan', 9, 'Sungai Danau', '3 Tahun', 'Di Tunda', 'Di Jalankan', '<p>Tidak Sesuai</p>', '2021-07-11', NULL, 1, NULL, '25', NULL),
-(3, '12333', 'Pembangunan Jembatan', 4, 'bjm', '3 Tahun', 'Di Tanggapi', 'Proyek Selesai', NULL, '2021-08-04', '2021-08-11', 2, '30000000000', '100', '11 Agustus 2021');
+INSERT INTO `proyek` (`id_proyek`, `kode_proyek`, `nama_proyek`, `id_perusahaan`, `alamat_proyek`, `estimasi`, `status_proyek`, `status_jalan`, `ket_tunda`, `tgl_mulai`, `tgl_selesai`, `id_am`, `biaya_akhir`, `progres`, `tgl_progres`, `berita_acara`) VALUES
+(1, 'K1', 'Pembangunan Jembatan', 8, 'Jembatan Batola', '5 Tahun ', 'Di Tanggapi', 'Proyek Selesai', NULL, '2021-07-09', '2021-08-04', 1, NULL, '100', '04 Agustus 2021', NULL),
+(2, 'PR5523', 'Pembangunan Jembatan', 9, 'Sungai Danau', '3 Tahun', 'Di Tunda', 'Di Jalankan', '<p>Tidak Sesuai</p>', '2021-07-11', NULL, 1, NULL, '25', NULL, NULL),
+(3, '12333', 'Pembangunan Jembatan', 4, 'bjm', '3 Tahun', 'Di Tanggapi', 'Proyek Selesai', NULL, '2021-08-04', '2021-08-11', 2, '30000000000', '100', '11 Agustus 2021', '<p>okehh</p>');
 
 -- --------------------------------------------------------
 
